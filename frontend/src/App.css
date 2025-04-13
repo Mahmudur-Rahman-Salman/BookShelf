@@ -1,4 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --color-primary: #FFCE1A; /* Example: indigo-600 */
+  --color-secondary: #0D0842; /* Example: indigo-700 */
+  --font-secondary: "Montserrat", sans-serif;
+}
 
 .swiper {
   width: 100%;
@@ -36,18 +42,18 @@
 }
 
 .btn-primary {
-    background-color: var(--color-primary);
-    padding: 0.5rem 3rem;
-    border-radius: 0.375rem;
-    font-size: 1rem;
-    font-family: var(--font-secondary);
-    font-weight: bold;
-    transition: all 0.2s;
-    cursor: pointer;
-  }
-  .btn-primary:hover {
-    background-color: var(--color-secondary);
-    color: white;
+  background-color: var(--color-primary);
+  padding: 0.5rem 3rem;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  font-family: var(--font-secondary);
+  font-weight: bold;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background-color: var(--color-secondary);
+  color: white;
 }
 
 .html {
