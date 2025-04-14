@@ -64,22 +64,6 @@ const TopSellers = () => {
         spaceBetween={30}
         navigation={true}
         breakpoints={{
-          //   640: {
-          //     slidesPerView: 1,
-          //     spaceBetween: 20,
-          //   },
-          //   768: {
-          //     slidesPerView: 2,
-          //     spaceBetween: 40,
-          //   },
-          //   1024: {
-          //     slidesPerView: 2,
-          //     spaceBetween: 50,
-          //   },
-          //   1180: {
-          //     slidesPerView: 3,
-          //     spaceBetween: 50,
-          //   },
           0: {
             slidesPerView: 1,
             spaceBetween: 20,
@@ -97,7 +81,7 @@ const TopSellers = () => {
             spaceBetween: 40,
           },
           1280: {
-            slidesPerView: 3,
+            slidesPerView: 2,
             spaceBetween: 50,
           },
         }}
