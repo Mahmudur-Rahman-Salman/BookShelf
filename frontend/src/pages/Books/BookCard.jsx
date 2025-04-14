@@ -35,8 +35,8 @@ const BookCard = ({ book }) => {
               $ {book?.oldPrice}
             </span>
           </p>
-          <button className="btn-primary px-6 space-x-1 flex items-center gap-1 ">
-            <FiShoppingCart className="" />
+          <button className="cart-btn-primary px-4 py-2 flex items-center justify-center gap-2 text-sm sm:text-base">
+            <FiShoppingCart />
             <span>Add to Cart</span>
           </button>
         </div>

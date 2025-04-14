@@ -1,6 +1,17 @@
 import React, { useEffect, useState } from "react";
 import BookCard from "../Books/BookCard";
 
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+// import required modules
+import { Pagination } from "swiper/modules";
+import { Navigation } from "swiper/modules";
+
 const categories = [
   "Choose a genre",
   "Business",
@@ -48,9 +59,58 @@ const TopSellers = () => {
         </select>
       </div>
 
-      {filteredBooks.map((book, index) => (
-        <BookCard key={index} book={book} />
-      ))}
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={30}
+        navigation={true}
+        breakpoints={{
+          //   640: {
+          //     slidesPerView: 1,
+          //     spaceBetween: 20,
+          //   },
+          //   768: {
+          //     slidesPerView: 2,
+          //     spaceBetween: 40,
+          //   },
+          //   1024: {
+          //     slidesPerView: 2,
+          //     spaceBetween: 50,
+          //   },
+          //   1180: {
+          //     slidesPerView: 3,
+          //     spaceBetween: 50,
+          //   },
+          0: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 1, // just over 1, gives peek effect
+            spaceBetween: 30,
+          },
+          1024: {
+            slidesPerView: 2,
+            spaceBetween: 40,
+          },
+          1280: {
+            slidesPerView: 3,
+            spaceBetween: 50,
+          },
+        }}
+        modules={[Pagination, Navigation]}
+        className="mySwiper"
+      >
+        {filteredBooks.length > 0 &&
+          filteredBooks.map((book, index) => (
+            <SwiperSlide key={index}>
+              <BookCard book={book} />
+            </SwiperSlide>
+          ))}
+      </Swiper>
     </div>
   );
 };

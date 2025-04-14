@@ -55,6 +55,20 @@
   background-color: var(--color-secondary);
   color: white;
 }
+.cart-btn-primary {
+  background-color: var(--color-primary);
+  
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  font-family: var(--font-secondary);
+  font-weight: bold;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.cart-btn-primary:hover {
+  background-color: var(--color-secondary);
+  color: white;
+}
 
 .html {
   scroll-behavior: smooth;
