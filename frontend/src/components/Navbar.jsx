@@ -6,6 +6,7 @@ import { FaRegUser } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import avatarImg from "../assets/avatar.png";
+import { useSelector } from "react-redux";
 
 const navigation = [
   { name: "Dashboard", href: "/dashboard" },
@@ -17,6 +18,9 @@ const navigation = [
 const Navbar = () => {
   const currentUser = false;
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  // console.log(cartItems);
 
   return (
     <header className="max-w-screen-2xl mx-auto px-6 py-6">
@@ -47,23 +51,21 @@ const Navbar = () => {
                   <img src={avatarImg} alt="" />
                 </button>
                 {/* show dropdowns */}
-                {
-                  isDropdownOpen && (
-                    <div className="absolute right-0 mt-2 bg-white shadow-lg rounded-md w-48 z-40">
-                      <ul className="py-2">
-                        {
-                          navigation.map((item) => (
-                            <li key={item.name}
-                            onClick={() => setIsDropdownOpen(false)} 
-                            className="py-2 px-4 hover:bg-gray-200 text-sm block">
-                              <Link to={item.href}>{item.name}</Link>
-                            </li>
-                          ))
-                        }
-                      </ul>
-                    </div>
-                  )
-                }
+                {isDropdownOpen && (
+                  <div className="absolute right-0 mt-2 bg-white shadow-lg rounded-md w-48 z-40">
+                    <ul className="py-2">
+                      {navigation.map((item) => (
+                        <li
+                          key={item.name}
+                          onClick={() => setIsDropdownOpen(false)}
+                          className="py-2 px-4 hover:bg-gray-200 text-sm block"
+                        >
+                          <Link to={item.href}>{item.name}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </>
             ) : (
               <Link to="/login">
@@ -79,7 +81,13 @@ const Navbar = () => {
             className="bg-[#FFCE1A] p-1 sm:px-6 px-2 flex items-center rounded-sm"
           >
             <HiOutlineShoppingCart className="size-6" />
-            <span className="text-sm font-semibold sm:ml-1">0</span>
+            {cartItems.length > 0 ? (
+              <span className="text-sm font-semibold sm:ml-1">
+                {cartItems.length}
+              </span>
+            ) : (
+              <span className="text-sm font-semibold sm:ml-1">0</span>
+            )}
           </Link>
         </div>
       </nav>
