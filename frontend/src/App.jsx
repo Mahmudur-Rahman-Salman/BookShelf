@@ -1,11 +1,12 @@
 import { Outlet } from "react-router-dom";
 import "./App.css";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <>
-      <nav>Navbar</nav>
-      <main className="min-h-screen max-w-screen-2xl mx-auto px-4 py-6">
+      <Navbar></Navbar>
+      <main className="min-h-screen max-w-screen-2xl mx-auto px-4 py-6 primaryFont">
         <Outlet></Outlet>
       </main>
       <footer>Footer</footer>
@@ -14,3 +15,17 @@ function App() {
 }
 
 export default App;
+
+/* 
+ colors: {
+        'primary': '#FFCE1A',
+        'secondary' : "#0D0842",
+        'blackBG': '#F3F3F3',
+        'Favorite': '#FF5841'
+      }, 
+      fontFamily: {
+        'primary' : ["Montserrat", "sans-serif"],
+        'secondary' : ["Nunito Sans", "sans-serif"]
+      }
+
+*/
