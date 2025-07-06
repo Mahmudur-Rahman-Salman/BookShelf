@@ -14,7 +14,6 @@ import BookCard from "../Books/BookCard";
 const Recommended = () => {
   const [books, setbooks] = useState([]);
 
-//   const [selectedCategory, setSelectedCategory] = useState("choose a genre");
 
   useEffect(() => {
     fetch("books.json")
