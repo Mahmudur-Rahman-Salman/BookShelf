@@ -87,7 +87,7 @@ const News = () => {
                     {item.title}
                   </h3>
                 </Link>
-                <div className="w-12 h-[4px] bg-primary mb-5"></div>
+                <div className="w-12 h-[4px] bg-[#FFCE1A] mb-5"></div>
                 <p className="text-sm text-gray-600">{item.description}</p>
               </div>
 
