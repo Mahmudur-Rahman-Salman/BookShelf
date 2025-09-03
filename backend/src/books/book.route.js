@@ -1,5 +1,6 @@
 const express = require("express");
 const Book = require("./Book.model");
+const { postBook, getAllBooks } = require("./book.controller");
 const router = express.Router();
 
 // frontend => backend server => controller => book schema  => database => send to server => back to the frontend
@@ -9,19 +10,9 @@ const router = express.Router();
 // delete = when delete something
 
 // post a book
-router.post("/create-book", async (req, res) => {
-  try {
-    const newBook = await Book({ ...req.body });
-    await newBook.save();
-    res
-      .status(200)
-      .send({ message: "Book created successfully", book: newBook });
-  } catch (error) {
-    console.error("Error creating book", error);
-    res
-      .status(500)
-      .send({ message: "Failed to create book", error: error.message });
-  }
-});
+router.post("/create-book", postBook);
+
+//get all books
+router.get("/", getAllBooks);
 
 module.exports = router;
