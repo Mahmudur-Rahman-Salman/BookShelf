@@ -29,7 +29,25 @@ const getAllBooks = async (req, res) => {
   }
 };
 
+// get single book
+const getSingleBook = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const book = await Book.findById(id);
+    if (!book) {
+      return res.status(404).send({ message: "Book not found" });
+    }
+    res.status(200).send({ message: "Book retrieved successfully", book });
+  } catch (error) {
+    console.error("Error retrieving book", error);
+    res
+      .status(500)
+      .send({ message: "Failed to retrieve book", error: error.message });
+  }
+};
+
 module.exports = {
   postBook,
   getAllBooks,
+  getSingleBook,
 };
